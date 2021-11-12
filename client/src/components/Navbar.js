@@ -4,7 +4,7 @@ import { ReactComponent as WebDevLogo } from "../img/icons/webDev.svg"
 const Navbar = () => {
   return (
     <div className='fixed md:relative  bottom-0 md:h-screen z-10'>
-      <nav className='bg-newblue dark:bg-newblack w-screen h-20 md:w-20 md:h-screen justify-between flex flex-col '>
+      <nav className='bg-newblue dark:bg-newblack w-screen h-16 md:w-20 md:h-screen justify-between flex flex-col '>
         <div className='flex justify-center w-full  md:mt-10 md:mb-10'>
           {/* <a href='#'>
             <img
@@ -12,7 +12,7 @@ const Navbar = () => {
               className='rounded-full w-10 h-10 mb-3 mx-auto'
             />
           </a> */}
-          <div className='md:mt-10 flex flex-col  w-full h-20'>
+          <div className='md:mt-10 flex flex-col  w-full h-16'>
             <ul className='flex md:flex-col w-screen  px-4 md:px-0 h-20 md:w-20 md:h-auto justify-between items-center '>
               <li className='md:my-12 text-center'>
                 <NavLink

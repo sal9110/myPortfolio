@@ -7,7 +7,7 @@ const Projects = () => {
         My Projects
       </h1>
       <div className='w-5/6 h-4/6 '>
-        <div className='flex w-full h-full text-black dark:text-white overflow-y-auto '>
+        <div className='flex w-full h-full text-black dark:text-white overflow-y-auto overscroll-auto '>
           <span className='w-full h-full flex flex-row justify-center items-center flex-wrap  hide scrollbar scrollbar-thumb-orange '>
             <Card
               cardStyle={

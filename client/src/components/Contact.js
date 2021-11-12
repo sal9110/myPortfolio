@@ -4,7 +4,7 @@ import { ReactComponent as Linkedin } from "../img/icons/icons8-linkedin.svg"
 
 const Contact = () => {
   return (
-    <div className='h-full w-full grid grid-cols-1 xl:grid-cols-2 px-5 '>
+    <div className='h-full w-full grid grid-cols-1 xl:grid-cols-2 p-5 overflow-auto'>
       <div className='flex flex-col justify-center items-center '>
         <h1 className='w-5/6 text-3xl md:text-4xl lg:text-5xl uppercase text-orange font-semibold'>
           Get in Touch
@@ -42,7 +42,7 @@ const Contact = () => {
         </button>
       </div>
 
-      <div className='flex flex-col justify-center items-center '>
+      <div className='flex flex-col justify-center items-center py-10'>
         <h1 className='text-2xl md:text-3xl lg:text-4xl'>
           Feeling social? Find me on these online spaces too!
         </h1>
