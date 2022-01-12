@@ -5,16 +5,10 @@ const Navbar = () => {
   return (
     <div className='fixed md:relative  bottom-0 md:h-screen z-10'>
       <nav className='bg-newblue dark:bg-newblack w-screen h-16 md:w-20 md:h-screen justify-between flex flex-col '>
-        <div className='flex justify-center w-full  md:mt-10 md:mb-10'>
-          {/* <a href='#'>
-            <img
-              src='https://picsum.photos/200/300'
-              className='rounded-full w-10 h-10 mb-3 mx-auto'
-            />
-          </a> */}
-          <div className='md:mt-10 flex flex-col  w-full h-16'>
-            <ul className='flex md:flex-col w-screen  px-4 md:px-0 h-20 md:w-20 md:h-auto justify-between items-center '>
-              <li className='md:my-12 text-center'>
+        <div className='flex justify-center w-full h-full md:mt-10 md:mb-10'>
+          <div className='md:mt-10 flex flex-col  w-full h-16 md:h-full items-center justify-center'>
+            <ul className='flex md:flex-col w-screen  px-4 md:px-0 h-20 md:w-20 md:h-auto justify-between md:justify-center items-center md:space-y-40 '>
+              <li className='md:my-auto text-center'>
                 <NavLink
                   to='/'
                   className={({ isActive }) =>
@@ -30,28 +24,28 @@ const Navbar = () => {
                     viewBox='0 0 24 24'
                     stroke='currentColor'>
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
                       d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
                     />
                   </svg>
                 </NavLink>
               </li>
 
-              <li className='md:my-12 text-center'>
+              <li className='md:my-auto text-center'>
                 <NavLink
                   to='/my-projects'
                   className={({ isActive }) =>
                     (isActive
                       ? "text-orange"
                       : "text-gray-800 dark:text-gray-300 ") +
-                    " h-8 w-8  mx-auto hover:text-gray-200 dark:hover:text-white transition-colors duration-200"
+                    "   mx-auto hover:text-gray-200 dark:hover:text-white transition-colors duration-200"
                   }>
                   <WebDevLogo className='stroke-current h-12 w-12 mx-auto ' />
                 </NavLink>
               </li>
-              <li className='md:my-12 text-center'>
+              <li className='md:my-auto text-center'>
                 <NavLink
                   to='contact'
                   className={({ isActive }) =>
@@ -69,7 +63,7 @@ const Navbar = () => {
                     className='w-12 h-12 mx-auto'
                     fill='currentColor'
                     stroke='currentColor'
-                    stroke-width='1'>
+                    strokeWidth='1'>
                     <g>
                       <g>
                         <path d='M835.3,35.8H267.9c-85.3,0-154.7,69.4-154.7,154.7v51.6H61.6c-28.5,0-51.6,23.1-51.6,51.6c0,28.5,23.1,51.6,51.6,51.6h51.6v103.2H61.6C33.1,448.4,10,471.5,10,500c0,28.5,23.1,51.6,51.6,51.6h51.6v103.2H61.6c-28.5,0-51.6,23.1-51.6,51.6c0,28.5,23.1,51.6,51.6,51.6h51.6v51.6c0,85.3,69.4,154.7,154.7,154.7h567.4c85.3,0,154.7-69.4,154.7-154.7V190.5C990,105.2,920.6,35.8,835.3,35.8L835.3,35.8z M216.3,190.5c0-28.4,23.2-51.6,51.6-51.6v103.2h-51.6V190.5L216.3,190.5z M216.3,345.3h51.6v103.2h-51.6V345.3z M216.3,551.6h51.6v103.2h-51.6V551.6z M216.3,809.5v-51.6h51.6V861C239.5,861,216.3,837.9,216.3,809.5L216.3,809.5z M886.8,809.5c0,28.4-23.2,51.6-51.6,51.6H319.5V138.9h515.8c28.4,0,51.6,23.2,51.6,51.6V809.5L886.8,809.5z' />

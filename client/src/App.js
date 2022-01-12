@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
+import Home from "./Pages/Home"
 import Navbar from "./components/Navbar"
-import Projects from "./components/Projects"
+import Projects from "./Pages/Projects"
 import { Switch } from "@headlessui/react"
 import { useEffect, useState } from "react"
 import DarkModeToggle from "./components/DarkModeToggle"
-import Contact from "./components/Contact"
+import Contact from "./Pages/Contact"
 
 function App() {
   return (

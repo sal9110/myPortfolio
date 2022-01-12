@@ -79,9 +79,9 @@ const mysql = () => (
       y1='25.236'
       y2='36.899'
       gradientUnits='userSpaceOnUse'>
-      <stop offset='0' stop-color='#058f92' />
-      <stop offset='.5' stop-color='#038489' />
-      <stop offset='1' stop-color='#026d71' />
+      <stop offset='0' stopColor='#058f92' />
+      <stop offset='.5' stopColor='#038489' />
+      <stop offset='1' stopColor='#026d71' />
     </linearGradient>
     <path
       fill='url(#eDMgMixeD6M6EYSYBuJ8ya)'
@@ -94,8 +94,8 @@ const mysql = () => (
       y1='25.644'
       y2='35.217'
       gradientUnits='userSpaceOnUse'>
-      <stop offset='0' stop-color='#ff9c0f' />
-      <stop offset='.813' stop-color='#d67e00' />
+      <stop offset='0' stopColor='#ff9c0f' />
+      <stop offset='.813' stopColor='#d67e00' />
     </linearGradient>
     <path
       fill='url(#eDMgMixeD6M6EYSYBuJ8yb)'
@@ -108,9 +108,9 @@ const mysql = () => (
       y1='11.716'
       y2='26.75'
       gradientUnits='userSpaceOnUse'>
-      <stop offset='0' stop-color='#058f92' />
-      <stop offset='.5' stop-color='#038489' />
-      <stop offset='1' stop-color='#026d71' />
+      <stop offset='0' stopColor='#058f92' />
+      <stop offset='.5' stopColor='#038489' />
+      <stop offset='1' stopColor='#026d71' />
     </linearGradient>
     <path
       fill='url(#eDMgMixeD6M6EYSYBuJ8yc)'
@@ -169,14 +169,14 @@ const tailwind = () => (
         id='A'
         x2='64'
         gradientUnits='userSpaceOnUse'>
-        <stop stop-color='#2383ae' offset='0%' />
-        <stop stop-color='#6dd7b9' offset='100%' />
+        <stop stopColor='#2383ae' offset='0%' />
+        <stop stopColor='#6dd7b9' offset='100%' />
       </linearGradient>
     </defs>
     <path
       d='M16 25.6c2.133-8.533 7.467-12.8 16-12.8 12.8 0 14.4 9.6 20.8 11.2 4.267 1.067 8-.533 11.2-4.8C61.867 27.733 56.533 32 48 32c-12.8 0-14.4-9.6-20.8-11.2-4.267-1.067-8 .533-11.2 4.8zM0 44.8C2.133 36.267 7.467 32 16 32c12.8 0 14.4 9.6 20.8 11.2 4.267 1.067 8-.533 11.2-4.8-2.133 8.533-7.467 12.8-16 12.8-12.8 0-14.4-9.6-20.8-11.2-4.267-1.067-8 .533-11.2 4.8z'
       fill='url(#A)'
-      fill-rule='evenodd'
+      fillRule='evenodd'
     />
   </svg>
 )
