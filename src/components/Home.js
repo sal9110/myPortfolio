@@ -103,14 +103,12 @@ const Home = () => {
             <span className='flex justify-center items-center  flex-wrap  w-full lg:w-5/6 h-2/6 space-x-3 md:space-x-5'>
               {PersonalInfo?.techStack?.map((el) =>
                 techIcons.hasOwnProperty(el) ? (
-                  <span className='flex flex-col justify-center'>
-                    <i
-                      key={el}
-                      className='h-16 w-16 md:w-24 md:h-24 lg:h-26 lg:w-26 2xl:w-30  2xl:h-30 p-3 '>
+                  <span key={el} className='flex flex-col justify-center'>
+                    <i className='h-16 w-16 md:w-24 md:h-24 lg:h-26 lg:w-26 2xl:w-30  2xl:h-30 p-3 '>
                       {" "}
                       {techIcons[el]()}{" "}
                     </i>
-                    <span className='text-lg 2xl:text-xl text-center '>
+                    <span className='text-lg 2xl:text-xl text-center text-black dark:text-orange '>
                       {el}
                     </span>
                   </span>
