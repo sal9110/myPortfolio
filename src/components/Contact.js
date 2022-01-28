@@ -13,12 +13,36 @@ const defaultInfo = {
 const Contact = () => {
   const { MessagesRef, PersonalInfo } = useContext(FirebaseContext)
   const [messageInfo, setMessageInfo] = useState(defaultInfo)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   async function submitMessage(e) {
     e.preventDefault()
-    const result = await MessagesRef.add(messageInfo)
-    console.log(result)
-    setMessageInfo(defaultInfo)
+    setIsLoading(true)
+    try {
+      if (
+        !messageInfo.email.length ||
+        !messageInfo.name.length ||
+        !messageInfo.message.length
+      ) {
+        throw new Error("Fill out all the fields")
+      }
+      await MessagesRef.add(messageInfo)
+
+      setMessageInfo(defaultInfo)
+      setTimeout(() => {
+        setIsSubmitted("Your message has been submitted")
+        setIsLoading(false)
+      }, 1000)
+    } catch (error) {
+      console.log(error.message)
+      setIsSubmitted(error.message || "Sorry something went wrong")
+      setIsLoading(false)
+    }
+
+    setTimeout(() => {
+      setIsSubmitted(false)
+    }, 4000)
   }
 
   return (
@@ -69,10 +93,15 @@ const Contact = () => {
             />
           </div>
         </div>
+
         <button
           className='flex px-4 py-2 bg-orange rounded text-2xl md:text-3xl lg:text-4xl'
           type='submit'>
-          Send message
+          {!isLoading
+            ? isSubmitted
+              ? isSubmitted
+              : "Send message"
+            : "loading..."}
         </button>
       </form>
 
@@ -81,7 +110,7 @@ const Contact = () => {
           Feeling social? Find me on these online spaces too!
         </h1>
         <div className='flex justify-center items-center gap-5 '>
-          {PersonalInfo.linkedin && (
+          {PersonalInfo?.linkedin && (
             <a
               className='flex px-4 py-2 my-4 w-full justify-center  '
               target='_blank'
@@ -91,7 +120,7 @@ const Contact = () => {
               <Linkedin className='h-16 w-16  ' />
             </a>
           )}
-          {PersonalInfo.github && (
+          {PersonalInfo?.github && (
             <a
               className='flex px-4 py-2 my-4 w-full justify-center '
               target='_blank'
@@ -101,7 +130,7 @@ const Contact = () => {
               <Github className='h-14 w-16  ' />
             </a>
           )}
-          {PersonalInfo.discord && (
+          {PersonalInfo?.discord && (
             <a
               className='flex px-4 py-2 my-4 w-full justify-center '
               target='_blank'

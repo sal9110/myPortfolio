@@ -1,9 +1,9 @@
-import myPic from "../img/linkedinPic.png"
 import { Transition } from "@headlessui/react"
 import React, { useContext, useEffect, useState } from "react"
-
+import { MutatingDots } from "react-loader-spinner"
 import techIcons from "../img/icons/icons"
 import { FirebaseContext } from "../Context/FirebaseContext"
+import ReactTooltip from "react-tooltip"
 
 const Home = () => {
   const { PersonalInfo } = useContext(FirebaseContext)
@@ -18,43 +18,24 @@ const Home = () => {
       setIsShowingText(true)
     }, 2000)
 
-    // async function x() {
-    //   let info = await PersonalInfo.get()
-    //   setProfile(info.data())
-
-    //   console.log(info.data())
-    // }
-    // x()
-
     return () => {
       setIsShowingPic(false)
       setIsShowingText(false)
     }
   }, [])
 
-  // const profile = {
-  //   picture: myPic,
-  //   about:
-  //     "Bio: Your bio is your chance to flesh yourself out as a person with information that, while valuable, might not fit in your resume. Highlight the elements of your professional story that make you unique. Include your hobbies, both related and unrelated to web development, to convey something about who you are.",
-  //   TechStack: [
-  //     "html",
-  //     "css",
-  //     "tailwind",
-  //     "javascript",
-  //     "nodejs",
-  //     "react",
-  //     "mongodb",
-  //     "mysql",
-  //     "heorku",
-  //   ],
-  // }
-
-  if (!PersonalInfo) {
-    return <div>Loading</div>
-  }
+  if (!PersonalInfo)
+    return (
+      <MutatingDots
+        ariaLabel='loading-indicator'
+        wrapperClass='flex justify-center'
+        color='black'
+        secondaryColor='white'
+      />
+    )
 
   return (
-    <div className='h-screen flex flex-col space-y-4 overflow-auto'>
+    <div className='h-screen flex flex-col space-y-4 overflow-y-auto'>
       <Transition
         show={isShowingPic}
         className='flex flex-col md:flex-row justify-center items-center pt-1 md:pt-8 px-6 lg:pt-14  w-full'
@@ -68,24 +49,15 @@ const Home = () => {
         <h1 className='w-full md:w-2/3 font-mochiy text-3xl md:text-5xl lg:text-6xl text-shadow  px-3 py-6 text-center'>
           {" "}
           Hi, I'm <span className='text-orange'>Salvo</span>{" "}
-          <span className='text-4xl'>👋🏻 </span>
+          <span className='text-4xl'>👋🏻 </span>
         </h1>
-        <div className='w-3/6 md:w-1/5  flex justify-center '>
-          <div className='flex flex-col space-y-4 '>
-            <img
-              className=' h-auto w-auto rounded-full filter border-4 border-orange '
-              alt='me'
-              src={PersonalInfo.picture}
-            />
-            {/* <a
-              className='flex px-4 py-2 bg-orange rounded text-2xl md:text-3xl lg:text-4xl justify-center '
-              target='_blank'
-              rel='noreferrer'
-              href='https://drive.google.com/file/d/1ecaLFNLJzFfTvUNUPlw-FC-F811_wOWc/view'>
-              {" "}
-              Check out my CV
-            </a> */}
-          </div>
+
+        <div className='flex flex-col justify-center items-center w-3/6 md:w-auto '>
+          <img
+            className='h-auto rounded-full filter border-4 border-orange w-1/2'
+            alt='me'
+            src={PersonalInfo.picture}
+          />
         </div>
       </Transition>
       <Transition
@@ -123,18 +95,25 @@ const Home = () => {
         enter='transition ease-linear duration-1000 transform '
         enterFrom='translate-y-full '
         enterTo='translate-y-0'>
-        <div className='flex flex-col justify-center items-center text-3xl md:text-4xl lg:text-5xl uppercase text-orange font-semibold'>
+        <div
+          data-tip='hiiii'
+          className='flex flex-col justify-center items-center text-3xl md:text-4xl lg:text-5xl uppercase text-orange font-semibold'>
           Technologies I use
           <div className='flex justify-center flex-wrap  xl:w-full '>
             <span className='flex justify-center items-center  flex-wrap  w-full lg:w-5/6 h-2/6 space-x-3 md:space-x-5'>
               {PersonalInfo?.techStack?.map((el) =>
                 techIcons.hasOwnProperty(el) ? (
-                  <i
-                    key={el}
-                    className='h-16 w-16 md:w-24 md:h-24 lg:h-26 lg:w-26 2xl:w-30  2xl:h-30 p-3 '>
-                    {" "}
-                    {techIcons[el]()}{" "}
-                  </i>
+                  <span className='flex flex-col justify-center'>
+                    <i
+                      key={el}
+                      className='h-16 w-16 md:w-24 md:h-24 lg:h-26 lg:w-26 2xl:w-30  2xl:h-30 p-3 '>
+                      {" "}
+                      {techIcons[el]()}{" "}
+                    </i>
+                    <span className='text-lg 2xl:text-xl text-center '>
+                      {el}
+                    </span>
+                  </span>
                 ) : null
               )}
             </span>
