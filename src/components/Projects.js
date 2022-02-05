@@ -19,7 +19,7 @@ const Projects = () => {
 
   return (
     <div className='h-full w-full flex flex-col justify-center items-center'>
-      <h1 className='w-5/6 text-3xl md:text-4xl lg:text-5xl uppercase text-orange font-semibold'>
+      <h1 className='w-5/6 text-3xl md:text-4xl lg:text-5xl uppercase dark:text-orange text-orange-dark font-semibold'>
         My Projects
       </h1>
       <div className='w-screen h-5/6 md:w-5/6 md:h-4/6 '>

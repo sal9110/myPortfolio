@@ -3,6 +3,7 @@ import { FirebaseContext } from "../Context/FirebaseContext"
 import { ReactComponent as Discord } from "../img/icons/icons8-discord.svg"
 import { ReactComponent as Github } from "../img/icons/icons8-github.svg"
 import { ReactComponent as Linkedin } from "../img/icons/icons8-linkedin.svg"
+import { ReactComponent as Twitter } from "../img/icons/twitter-3.svg"
 
 const defaultInfo = {
   name: "",
@@ -50,7 +51,7 @@ const Contact = () => {
       <form
         onSubmit={(e) => submitMessage(e)}
         className='flex flex-col justify-center items-center '>
-        <h1 className='w-5/6 text-3xl md:text-4xl lg:text-5xl uppercase text-orange font-semibold'>
+        <h1 className='w-5/6 text-3xl md:text-4xl lg:text-5xl uppercase dark:text-orange text-orange-dark font-semibold'>
           Get in Touch
         </h1>
 
@@ -95,7 +96,7 @@ const Contact = () => {
         </div>
 
         <button
-          className='flex px-4 py-2 bg-orange rounded text-2xl md:text-3xl lg:text-4xl'
+          className='flex px-4 py-2 dark:bg-orange bg-orange-dark rounded text-2xl md:text-3xl lg:text-4xl'
           type='submit'>
           {!isLoading
             ? isSubmitted
@@ -127,7 +128,7 @@ const Contact = () => {
               rel='noreferrer'
               href={PersonalInfo.github}>
               {" "}
-              <Github className='h-14 w-16  ' />
+              <Github className='h-14 w-16 dark:text-gray-200  text-black' />
             </a>
           )}
           {PersonalInfo?.discord && (
@@ -138,6 +139,16 @@ const Contact = () => {
               href={PersonalInfo.discord}>
               {" "}
               <Discord className='h-16 w-16 ' />
+            </a>
+          )}
+          {PersonalInfo?.twitter && (
+            <a
+              className='flex px-4 py-2 my-4 w-full justify-center '
+              target='_blank'
+              rel='noreferrer'
+              href={PersonalInfo.twitter}>
+              {" "}
+              <Twitter className='h-16 w-16 ' />
             </a>
           )}
         </div>

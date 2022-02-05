@@ -26,7 +26,7 @@ const DarkModeToggle = () => {
     <button
       onClick={() => setMode((prev) => (prev === "dark" ? "light" : "dark"))}
       className={` 
-       dark:bg-white bg-orange
+       dark:bg-white bg-orange-dark 
        absolute top-4 right-2 md:left-4 w-12 h-12 z-30 rounded-full`}>
       {mode === "dark" ? (
         <svg
