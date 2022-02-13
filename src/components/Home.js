@@ -1,9 +1,8 @@
 import { Transition } from "@headlessui/react"
 import React, { useContext, useEffect, useState } from "react"
 import { MutatingDots } from "react-loader-spinner"
-import techIcons from "../img/icons/icons"
+import techIcons from "../img/icons/techIcons"
 import { FirebaseContext } from "../Context/FirebaseContext"
-import ReactTooltip from "react-tooltip"
 
 const Home = () => {
   const { PersonalInfo } = useContext(FirebaseContext)
@@ -34,6 +33,24 @@ const Home = () => {
       />
     )
 
+  const renderTechIcons = () => (
+    <span className='flex justify-center items-center  flex-wrap  w-full lg:w-5/6 h-2/6 space-x-3 md:space-x-5'>
+      {PersonalInfo?.techStack?.map((el) =>
+        techIcons.hasOwnProperty(el) ? (
+          <span key={el} className='flex flex-col justify-center'>
+            <i className='h-16 w-16 md:w-24 md:h-24 lg:h-26 lg:w-26 2xl:w-30  2xl:h-30 p-3 '>
+              {" "}
+              {techIcons[el]()}{" "}
+            </i>
+            <span className='text-lg 2xl:text-xl text-center text-black dark:text-orange  '>
+              {el}
+            </span>
+          </span>
+        ) : null
+      )}
+    </span>
+  )
+
   return (
     <div className='h-screen flex flex-col space-y-4 overflow-y-auto '>
       <Transition
@@ -41,11 +58,7 @@ const Home = () => {
         className='flex flex-col md:flex-row justify-center items-center pt-1 md:pt-8 px-6 lg:pt-14  w-full'
         enter='transition ease-linear duration-1000 transform '
         enterFrom='-translate-x-full'
-        enterTo='translate-x-0'
-        //   leave='transition ease-in-out duration-300 transform'
-        //   leaveFrom='translate-x-0'
-        //   leaveTo='-translate-x-full'
-      >
+        enterTo='translate-x-0'>
         <div className='flex flex-col md:flex-row justify-center items-center w-full md:w-auto pt-10 md:pt-5 '>
           <h1 className='w-full md:w-2/3 font-mochiy text-3xl md:text-5xl lg:text-6xl text-shadow  px-3 py-6 text-center'>
             {" "}
@@ -67,11 +80,7 @@ const Home = () => {
         className=' flex flex-col justify-center items-center w-full px-6 '
         enter='transition ease-linear duration-1000 transform '
         enterFrom='translate-x-full '
-        enterTo='translate-x-0'
-        //   leave='transition ease-in-out duration-300 transform'
-        //   leaveFrom='translate-x-0'
-        //   leaveTo='-translate-x-full'
-      >
+        enterTo='translate-x-0'>
         <div className='md:w-5/6  md:p-10'>
           <h1 className='text-xl md:text-4xl lg:text-5xl uppercase dark:text-orange text-orange-dark font-semibold'>
             About me
@@ -100,21 +109,7 @@ const Home = () => {
         <div className='flex flex-col justify-center items-center text-3xl md:text-4xl lg:text-5xl uppercase dark:text-orange text-orange-dark font-semibold'>
           Technologies I use
           <div className='flex justify-center flex-wrap  xl:w-full '>
-            <span className='flex justify-center items-center  flex-wrap  w-full lg:w-5/6 h-2/6 space-x-3 md:space-x-5'>
-              {PersonalInfo?.techStack?.map((el) =>
-                techIcons.hasOwnProperty(el) ? (
-                  <span key={el} className='flex flex-col justify-center'>
-                    <i className='h-16 w-16 md:w-24 md:h-24 lg:h-26 lg:w-26 2xl:w-30  2xl:h-30 p-3 '>
-                      {" "}
-                      {techIcons[el]()}{" "}
-                    </i>
-                    <span className='text-lg 2xl:text-xl text-center text-black dark:text-orange  '>
-                      {el}
-                    </span>
-                  </span>
-                ) : null
-              )}
-            </span>
+            {renderTechIcons()}
           </div>
         </div>
       </Transition>

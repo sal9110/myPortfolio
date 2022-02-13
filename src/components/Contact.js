@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { FirebaseContext } from "../Context/FirebaseContext"
 import { ReactComponent as Discord } from "../img/icons/icons8-discord.svg"
 import { ReactComponent as Github } from "../img/icons/icons8-github.svg"
